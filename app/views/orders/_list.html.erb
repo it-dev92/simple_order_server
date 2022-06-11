@@ -1,0 +1,24 @@
+<table class="min-w-full divide-y divide-gray-200">
+  <thead>
+    <tr>
+      <th class="px-6 py-2 bg-gray-100 text-left leading-4 font-medium text-gray-500 uppercase tracking-wider">
+        <%= sort_link(@q, :product_number, "Product #") %>
+      </th>
+      <th class="px-6 py-2 bg-gray-100 text-left leading-4 font-medium text-gray-500 uppercase tracking-wider">
+        <%= sort_link(@q, :name, "Name") %>
+      </th>
+      <th class="px-6 py-2 bg-gray-100 text-left leading-4 font-medium text-gray-500 uppercase tracking-wider">
+        <%= sort_link(@q, :state, "Status") %>
+      </th>
+      <th class="px-6 py-2 bg-gray-100 text-left leading-4 font-medium text-gray-500 uppercase tracking-wider">
+        <%= sort_link(@q, :created_at, "Requested At") %>
+      </th>
+      <th class="px-6 py-2 bg-gray-100 text-left leading-4 font-medium text-gray-500 uppercase tracking-wider">
+        <%= sort_link(@q, :delivered_at, "Delivered At") %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "item", collection: @orders, as: :order %>
+  </tbody>
+</table>

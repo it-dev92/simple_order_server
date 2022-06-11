@@ -1,0 +1,20 @@
+<%= search_form_for @q, url: orders_path, class: 'my-4' do |f| %>
+  <div class="grid grid-cols-4 gap-8 items-center">
+    <div>
+      <%= f.label :product_number, "Product #" %>
+      <%= f.search_field :product_number_cont, id: 'q_product_number', class: 'focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm border-gray-300 rounded-md' %>
+    </div>
+    <div>
+      <%= f.label :name, "Name" %>
+      <%= f.search_field :name_cont, id: 'q_name', class: 'focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm border-gray-300 rounded-md' %>
+    </div>
+    <div>
+      <%= f.label :state, "Status" %>
+      <%= f.select :state_eq, options_for_select(Order.states, params[:q].present? ? params[:q][:state_eq] : nil), { include_blank: true }, id: 'q_state', class: 'focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm border-gray-300 rounded-md' %>
+    </div>
+    <div class="mt-5 text-right">
+      <%= submit_tag "Search", class: "w-1/2 hover:bg-indigo-700 bg-indigo-500 px-2 p-1 leading-normal text-white rounded cursor-pointer", data: { disable_with: "Filtering..." } %>
+      <%= link_to "Clear", orders_path, class: "text-blue-500 font-medium cursor-pointer ml-5" %>
+    </div>
+  </div>
+<% end %>

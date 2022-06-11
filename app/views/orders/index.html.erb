@@ -1,0 +1,12 @@
+<div class="mx-8 my-12">
+  <div class="rounded-lg py-0.5 px-6 bg-gray-300 mb-6">
+    <%= render "filter_form" %>
+  </div>
+  <div class="flex justify-between py-2">
+    <span class="font-bold">Total Orders: <%= @orders.count %></span>
+    <%= link_to "New Order", new_order_path, class: "hover:bg-blue-700 bg-blue-500 px-2 p-1 leading-normal text-white rounded cursor-pointer" %>
+  </div>
+  <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+    <%= render "list" %>
+  </div>
+</div>
